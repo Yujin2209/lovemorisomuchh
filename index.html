@@ -1,0 +1,3166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>우리의 작은 이야기 ♡</title>
+
+<!-- Korean Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Gowun+Batang&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --cream:#faf5f0;
+    --paper:#fffaf7;
+    --pink:#ef91a9;
+    --pink2:#f7c4cf;
+    --pink3:#ffe7ed;
+    --rose:#b85c78;
+    --wine:#74384d;
+    --brown:#654b4d;
+    --line:#ead7d5;
+    --shadow:0 20px 60px rgba(116,56,77,.10);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Gowun Dodum',sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%,#ffe5eb 0,transparent 28%),
+        radial-gradient(circle at 90% 90%,#eee2ff 0,transparent 25%),
+        var(--cream);
+    color:var(--brown);
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* ================= PAPER TEXTURE ================= */
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.25;
+    background-image:
+        radial-gradient(#b78c91 .5px,transparent .5px);
+    background-size:8px 8px;
+    z-index:999;
+    mix-blend-mode:multiply;
+}
+
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart{
+    position:fixed;
+    color:#e99aaa;
+    opacity:.25;
+    animation:floatHeart linear infinite;
+    pointer-events:none;
+    z-index:0;
+}
+
+@keyframes floatHeart{
+
+    from{
+        transform:translateY(110vh) rotate(0deg);
+    }
+
+    to{
+        transform:translateY(-15vh) rotate(25deg);
+    }
+
+}
+
+
+/* ================= PAGE ================= */
+
+.page{
+    min-height:100vh;
+    display:none;
+    position:relative;
+    padding:35px 18px 60px;
+    z-index:2;
+}
+
+.page.active{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    animation:pageIn .7s ease;
+}
+
+@keyframes pageIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+
+}
+
+.container{
+    width:min(100%,1050px);
+}
+
+
+/* ================= TOP BAR ================= */
+
+.topbar{
+    width:min(100%,1050px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    font-size:13px;
+    color:#9c747b;
+}
+
+.logo{
+    font-family:'Nanum Pen Script',cursive;
+    font-size:27px;
+    color:var(--wine);
+}
+
+.page-number{
+    letter-spacing:2px;
+}
+
+
+/* ================= BUTTON ================= */
+
+.btn{
+    border:0;
+    background:var(--pink);
+    color:white;
+    padding:13px 25px;
+    border-radius:999px;
+    font-family:inherit;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(239,145,169,.25);
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(239,145,169,.35);
+}
+
+.btn:active{
+    transform:scale(.97);
+}
+
+.btn.secondary{
+    background:white;
+    color:var(--rose);
+    border:1px solid var(--line);
+    box-shadow:none;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    width:min(100%,1050px);
+    min-height:650px;
+    background:rgba(255,250,247,.86);
+    border:1px solid var(--line);
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+}
+
+.hero-photo{
+    min-height:650px;
+    background:
+        linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(70,35,45,.4)
+        ),
+        url("https://cdn.discordapp.com/attachments/1501195398801260596/1554183268834869288/IMG_4802.jpg?ex=6abbf576&is=6abaa3f6&hm=c7ce4a28a88e2e570130a62938f90a8c5913630b338ffd5d91fb41db8b9e9b16&")
+        center/cover;
+    position:relative;
+}
+
+.hero-note{
+    position:absolute;
+    bottom:35px;
+    left:35px;
+    background:#fffaf4;
+    padding:17px 24px;
+    transform:rotate(-3deg);
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+    font-family:'Nanum Pen Script',cursive;
+    font-size:25px;
+    color:var(--wine);
+}
+
+.hero-content{
+    padding:60px 55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.korean-small{
+    font-size:17px;
+    color:#ad7482;
+    margin-bottom:12px;
+}
+
+.hero h1{
+    font-family:'Gowun Batang',serif;
+    font-size:clamp(40px,5vw,68px);
+    line-height:1.1;
+    color:var(--wine);
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--pink);
+}
+
+.hero p{
+    line-height:1.9;
+    color:#856a6d;
+    margin-bottom:30px;
+}
+
+.hand{
+    font-family:'Nanum Pen Script',cursive;
+    font-size:29px;
+    color:var(--rose);
+    margin-top:35px;
+}
+
+
+/* ================= SECTION TITLE ================= */
+
+.section-title{
+    text-align:center;
+    margin:25px 0 35px;
+}
+
+.section-title .kr{
+    font-family:'Nanum Pen Script',cursive;
+    font-size:35px;
+    color:var(--rose);
+}
+
+.section-title h2{
+    font-family:'Gowun Batang',serif;
+    font-size:35px;
+    color:var(--wine);
+    margin:5px 0;
+}
+
+.section-title p{
+    color:#99787d;
+}
+
+
+/* ================= MISSIONS ================= */
+
+.missions{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.mission{
+    background:rgba(255,250,247,.9);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.3s;
+}
+
+.mission:hover{
+    transform:translateY(-5px) rotate(-1deg);
+}
+
+.mission-icon{
+    width:70px;
+    height:70px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ffe0e7;
+    color:var(--rose);
+}
+
+.mission h3{
+    margin:20px 0 8px;
+    color:var(--wine);
+}
+
+.mission p{
+    font-size:14px;
+    color:#92777a;
+    min-height:48px;
+}
+
+.mission-status{
+    margin-top:20px;
+    color:#c0778b;
+    font-size:13px;
+}
+
+
+/* ================= HEART GAME ================= */
+
+.heart-game{
+    text-align:center;
+    margin-top:35px;
+}
+
+.big-heart{
+    width:180px;
+    height:180px;
+    border:0;
+    border-radius:50%;
+    background:#f6a7b9;
+    color:white;
+    cursor:pointer;
+    box-shadow:
+        0 0 0 15px #fde4e9,
+        0 20px 45px rgba(190,90,120,.25);
+    transition:.15s;
+}
+
+.big-heart:hover{
+    transform:scale(1.05);
+}
+
+.big-heart:active{
+    transform:scale(.92);
+}
+
+.big-heart svg{
+    width:70px;
+    height:70px;
+    fill:white;
+}
+
+.counter{
+    margin-top:30px;
+    font-size:22px;
+    color:var(--wine);
+}
+
+
+/* ================= CATCH GAME ================= */
+
+.catch-area{
+    width:100%;
+    max-width:700px;
+    height:430px;
+    margin:30px auto;
+    border-radius:28px;
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(#fff7fae6,#fff7fae6),
+        radial-gradient(
+            circle at 30% 20%,
+            #dce8ff,
+            transparent 30%
+        ),
+        #f8dce6;
+
+    position:relative;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.catch-heart{
+    position:absolute;
+    border:0;
+    background:none;
+    color:#ed91a8;
+    cursor:pointer;
+    animation:floatAround 3s ease-in-out infinite;
+}
+
+@keyframes floatAround{
+
+    50%{
+        transform:translateY(-20px) rotate(8deg);
+    }
+
+}
+
+
+/* ================= QUESTION ================= */
+
+.question-card{
+    width:min(100%,700px);
+    background:#fffaf7;
+    border:1px solid var(--line);
+    border-radius:25px;
+    padding:35px;
+    margin:30px auto;
+    box-shadow:var(--shadow);
+    text-align:center;
+}
+
+.question{
+    font-family:'Gowun Batang',serif;
+    font-size:23px;
+    color:var(--wine);
+    margin-bottom:25px;
+}
+
+.answers{
+    display:grid;
+    gap:12px;
+}
+
+.answer{
+    border:1px solid #ead4d6;
+    background:#fff;
+    border-radius:15px;
+    padding:14px;
+    cursor:pointer;
+    font-family:inherit;
+    color:#765b60;
+    transition:.2s;
+}
+
+.answer:hover{
+    background:#fff0f3;
+    transform:translateX(4px);
+}
+
+
+/* ================= KEY CARD ================= */
+
+.key-card{
+    width:min(100%,750px);
+    background:#fffaf7;
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:40px;
+    box-shadow:var(--shadow);
+    text-align:center;
+}
+
+.key-icon{
+    color:var(--rose);
+    margin-bottom:15px;
+}
+
+.key-card h2{
+    font-family:'Gowun Batang',serif;
+    color:var(--wine);
+    font-size:32px;
+}
+
+.key-card p{
+    margin:10px 0 25px;
+    color:#96757b;
+}
+
+.key-box{
+    background:#f8eef0;
+    border:1px dashed #d9a9b5;
+    padding:17px;
+    border-radius:14px;
+    word-break:break-all;
+    color:#8b5363;
+    font-size:12px;
+    text-align:left;
+    margin-bottom:15px;
+}
+
+.copy-row{
+    display:flex;
+    gap:10px;
+}
+
+.copy-row button{
+    flex:1;
+}
+
+
+/* ================= MUSIC INPUT ================= */
+
+.music-box{
+    width:min(100%,750px);
+    background:#fffaf7;
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:45px;
+    box-shadow:var(--shadow);
+    text-align:center;
+}
+
+.music-box input{
+    width:100%;
+    padding:17px;
+    border-radius:15px;
+    border:1px solid #e5cfd2;
+    outline:none;
+    font-family:inherit;
+    margin:20px 0 12px;
+    background:#fff;
+}
+
+.music-box input:focus{
+    border-color:#db8da2;
+    box-shadow:0 0 0 4px #fbe1e7;
+}
+
+.error{
+    color:#c55c77;
+    font-size:13px;
+    min-height:20px;
+}
+
+
+/* ================= CD ANIMATION ================= */
+
+.cd-scene{
+    display:none;
+    width:min(100%,700px);
+    text-align:center;
+    padding:35px;
+}
+
+.cd-machine{
+    width:310px;
+    height:210px;
+    margin:0 auto 25px;
+    border-radius:25px;
+    background:linear-gradient(
+        145deg,
+        #eee5e2,
+        #d7c9c6
+    );
+    box-shadow:0 25px 50px rgba(90,60,60,.18);
+    position:relative;
+    padding:30px;
+}
+
+.cd-slot{
+    height:30px;
+    background:#6c5960;
+    border-radius:20px;
+    position:absolute;
+    top:35px;
+    left:35px;
+    right:35px;
+}
+
+.cd{
+    width:135px;
+    height:135px;
+    border-radius:50%;
+    position:absolute;
+    left:50%;
+    top:55px;
+
+    transform:
+        translate(-50%,-130%);
+
+    background:
+        radial-gradient(
+            circle,
+            #fff 0 8%,
+            #d28ca1 9% 12%,
+            transparent 13%
+        ),
+        conic-gradient(
+            #f7ccd8,
+            #ead8ff,
+            #f4b7ca,
+            #ddd2ff,
+            #f7ccd8
+        );
+
+    border:7px solid #fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+
+.cd.insert{
+    animation:
+        insertCD
+        1.5s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
+}
+
+@keyframes insertCD{
+
+    0%{
+        transform:
+            translate(-50%,-130%)
+            rotate(0deg);
+    }
+
+    60%{
+        transform:
+            translate(-50%,-5%)
+            rotate(240deg);
+    }
+
+    100%{
+        transform:
+            translate(-50%,0)
+            rotate(360deg);
+    }
+
+}
+
+.unlock-text{
+    font-family:'Nanum Pen Script',cursive;
+    color:var(--rose);
+    font-size:36px;
+}
+
+
+/* ================= PLAYER ================= */
+
+.player{
+    width:min(100%,850px);
+    background:#fffaf7;
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:35px;
+    box-shadow:var(--shadow);
+
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:35px;
+    align-items:center;
+}
+
+.album{
+    width:260px;
+    height:260px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(100,50,60,.2);
+}
+
+.album img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.now-playing{
+    color:#bd7187;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.song-title{
+    font-family:'Gowun Batang',serif;
+    font-size:34px;
+    color:var(--wine);
+    margin:8px 0 20px;
+}
+
+.progress{
+    width:100%;
+    height:5px;
+    background:#eadde0;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:#db8198;
+}
+
+.controls{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    margin-top:25px;
+}
+
+.control{
+    width:46px;
+    height:46px;
+    border:0;
+    border-radius:50%;
+    background:#f8e5e9;
+    color:var(--rose);
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.control.main{
+    width:62px;
+    height:62px;
+    background:var(--pink);
+    color:white;
+}
+
+
+/* ================================================= */
+/*                  MEMORY SECTION                   */
+/* ================================================= */
+
+.memory-layout{
+    width:min(100%,1100px);
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        minmax(0,1fr);
+
+    gap:30px;
+
+    align-items:start;
+}
+
+
+/* ================= PINK PHOTO CARDS ================= */
+
+.memory-layout .gallery{
+    width:100%;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:25px;
+}
+
+.photo-card{
+    background:#fff0f5 !important;
+
+    border:1px solid #f3c8d3;
+
+    padding:14px 14px 24px !important;
+
+    box-shadow:
+        0 15px 35px rgba(190,100,125,.16) !important;
+
+    border-radius:8px;
+
+    opacity:0;
+
+    transition:
+        .35s;
+}
+
+.photo-card.show{
+    animation:
+        photoIn
+        .8s
+        ease
+        forwards;
+}
+
+.photo-card:nth-child(1){
+    --r:-2deg;
+}
+
+.photo-card:nth-child(2){
+    --r:2deg;
+}
+
+.photo-card:nth-child(3){
+    --r:1.5deg;
+}
+
+.photo-card:nth-child(4){
+    --r:-1.5deg;
+}
+
+.photo-card:hover{
+    transform:
+        rotate(0deg)
+        translateY(-6px) !important;
+
+    box-shadow:
+        0 20px 40px rgba(190,100,125,.23)
+        !important;
+}
+
+.photo-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    display:block;
+}
+
+.photo-caption{
+    text-align:center;
+
+    font-family:
+        'Nanum Pen Script',
+        cursive;
+
+    font-size:27px;
+
+    color:var(--wine);
+
+    margin-top:10px;
+}
+
+@keyframes photoIn{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(40px)
+            rotate(var(--r));
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            rotate(var(--r));
+    }
+
+}
+
+
+/* ================= MESSAGE CARDS ================= */
+
+.message-column{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.message-card{
+    perspective:1200px;
+    height:205px;
+}
+
+.message-inner{
+    width:100%;
+    height:100%;
+
+    position:relative;
+
+    transition:
+        transform
+        .8s
+        cubic-bezier(.4,.2,.2,1);
+
+    transform-style:preserve-3d;
+
+    cursor:pointer;
+}
+
+.message-card.flipped
+.message-inner{
+    transform:rotateY(180deg);
+}
+
+.message-front,
+.message-back{
+
+    position:absolute;
+
+    inset:0;
+
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+
+    border-radius:22px;
+
+    border:1px solid #efc5d0;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:28px;
+
+    box-shadow:
+        0 15px 35px rgba(170,90,115,.13);
+
+    overflow:hidden;
+}
+
+
+/* FRONT KOREAN */
+
+.message-front{
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            #ffdce7 0,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            #f8d5df 0,
+            transparent 25%
+        ),
+
+        #fff2f6;
+}
+
+.message-front:before{
+    content:"♡";
+
+    position:absolute;
+
+    top:12px;
+    left:20px;
+
+    color:#e9a2b4;
+
+    font-size:22px;
+}
+
+.message-front:after{
+    content:"♡";
+
+    position:absolute;
+
+    bottom:12px;
+    right:20px;
+
+    color:#e9a2b4;
+
+    font-size:18px;
+}
+
+
+/* BACK THAI */
+
+.message-back{
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbdfe7,
+            #f7d0dc
+        );
+
+    transform:rotateY(180deg);
+}
+
+
+/* TEXT */
+
+.message-korean{
+
+    font-family:
+        'Nanum Pen Script',
+        cursive;
+
+    font-size:38px;
+
+    color:#8d4058;
+
+    line-height:1.25;
+}
+
+.message-thai{
+
+    font-family:
+        'Gowun Dodum',
+        sans-serif;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#754e59;
+}
+
+.message-label{
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    color:#c17b8e;
+}
+
+
+/* TRANSLATE BUTTON */
+
+.translate-btn{
+
+    margin-top:16px;
+
+    border:1px solid #dfa0b1;
+
+    background:
+        rgba(255,255,255,.75);
+
+    color:#a95670;
+
+    padding:
+        8px
+        20px;
+
+    border-radius:999px;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.translate-btn:hover{
+
+    background:white;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* ================= ENDING ================= */
+
+.ending{
+    width:min(100%,900px);
+    min-height:600px;
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            #4d314c55,
+            #4d314c55
+        ),
+
+        url("https://cdn.discordapp.com/attachments/1501195398801260596/1554179168520904785/0d9330ab62cf5bc784150ccd86cc3e9e.jpg?ex=6abbf1a5&is=6abaa025&hm=cd00b59e779108407cac6fdee13755d41ed46bb59c344a3b3fcce5d024efc070&")
+        center/cover;
+
+    box-shadow:var(--shadow);
+}
+
+.ending-content{
+    color:white;
+    padding:40px;
+}
+
+.ending-content .kr{
+
+    font-family:
+        'Nanum Pen Script',
+        cursive;
+
+    font-size:48px;
+}
+
+.ending-content h2{
+
+    font-family:
+        'Gowun Batang',
+        serif;
+
+    font-size:42px;
+
+    margin:
+        10px 0;
+}
+
+.ending-content p{
+    line-height:2;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+    .memory-layout{
+        grid-template-columns:1fr;
+    }
+
+    .message-column{
+        margin-top:10px;
+    }
+
+}
+
+@media(max-width:800px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero-photo{
+        min-height:430px;
+    }
+
+    .hero-content{
+        padding:40px 28px;
+    }
+
+    .missions{
+        grid-template-columns:1fr;
+    }
+
+    .player{
+        grid-template-columns:1fr;
+    }
+
+    .album{
+        margin:auto;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .page{
+        padding:
+            20px
+            12px
+            40px;
+    }
+
+    .hero-photo{
+        min-height:350px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .photo-card img{
+        height:360px;
+    }
+
+    .copy-row{
+        flex-direction:column;
+    }
+
+    .music-box,
+    .key-card{
+        padding:
+            28px
+            18px;
+    }
+
+    .message-card{
+        height:190px;
+    }
+
+    .message-korean{
+        font-size:32px;
+    }
+
+    .message-thai{
+        font-size:16px;
+    }
+
+    .ending-content .kr{
+        font-size:40px;
+    }
+
+    .ending-content h2{
+        font-size:32px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- FLOATING HEARTS -->
+<!-- ================================================= -->
+
+<div class="heart"
+     style="left:5%;font-size:22px;animation-duration:13s;">
+    ♡
+</div>
+
+<div class="heart"
+     style="left:18%;font-size:15px;animation-duration:17s;">
+    ♥
+</div>
+
+<div class="heart"
+     style="left:35%;font-size:20px;animation-duration:15s;">
+    ♡
+</div>
+
+<div class="heart"
+     style="left:57%;font-size:17px;animation-duration:20s;">
+    ♥
+</div>
+
+<div class="heart"
+     style="left:75%;font-size:25px;animation-duration:14s;">
+    ♡
+</div>
+
+<div class="heart"
+     style="left:90%;font-size:18px;animation-duration:18s;">
+    ♥
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- PAGE 1 : HOME -->
+<!-- ================================================= -->
+
+<section class="page active" id="page1">
+
+    <div class="topbar">
+
+        <div class="logo">
+            우리의 작은 이야기 ♡
+        </div>
+
+        <div class="page-number">
+            01 / 07
+        </div>
+
+    </div>
+
+
+    <div class="hero">
+
+        <div class="hero-photo">
+
+            <div class="hero-note">
+                사랑해 ♡
+            </div>
+
+        </div>
+
+
+        <div class="hero-content">
+
+            <div class="korean-small">
+                너와 함께한 모든 순간이 소중해
+            </div>
+
+
+            <h1>
+                우리의<br>
+                작은 <span>이야기</span>
+            </h1>
+
+
+            <p>
+
+                지금부터 우리만의 작은 여행을 시작해볼까?
+
+                <br>
+
+                ภารกิจเล็ก ๆ รออยู่ข้างหน้าแล้วนะ ♡
+
+            </p>
+
+
+            <button
+                class="btn"
+                onclick="goPage(2)"
+            >
+                시작하기&nbsp; →
+            </button>
+
+
+            <div class="hand">
+                너와 함께라서 행복해 ♡
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- PAGE 2 : MISSION LIST -->
+<!-- ================================================= -->
+
+<section class="page" id="page2">
+
+    <div class="topbar">
+
+        <button
+            class="btn secondary"
+            onclick="goPage(1)"
+        >
+            ← Back
+        </button>
+
+        <div class="page-number">
+            02 / 07
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <div class="kr">
+                미션 리스트 ♡
+            </div>
+
+            <h2>
+                ภารกิจของเรา
+            </h2>
+
+            <p>
+                ทำภารกิจให้ครบ แล้วเบ้บบี้จะได้กุญแจเพลงนะครับ ♡
+            </p>
+
+        </div>
+
+
+        <div class="missions">
+
+
+            <!-- MISSION 1 -->
+
+            <div class="mission">
+
+                <div class="mission-icon">
+
+                    <i data-lucide="heart"></i>
+
+                </div>
+
+                <h3>
+                    ภารกิจที่ 1
+                </h3>
+
+                <p>
+                    กดหัวใจให้ครบ 10 ครั้ง
+                    <br>
+                    너무 귀여워 ♡
+                </p>
+
+                <div
+                    class="mission-status"
+                    id="status1"
+                >
+                    ○ ยังไม่สำเร็จ
+                </div>
+
+            </div>
+
+
+            <!-- MISSION 2 -->
+
+            <div class="mission">
+
+                <div class="mission-icon">
+
+                    <i data-lucide="sparkles"></i>
+
+                </div>
+
+                <h3>
+                    ภารกิจที่ 2
+                </h3>
+
+                <p>
+                    จับหัวใจที่ลอยมาให้ครบ 5 ดวง
+                </p>
+
+                <div
+                    class="mission-status"
+                    id="status2"
+                >
+                    ○ ยังไม่สำเร็จ
+                </div>
+
+            </div>
+
+
+            <!-- MISSION 3 -->
+
+            <div class="mission">
+
+                <div class="mission-icon">
+
+                    <i data-lucide="message-circle"></i>
+
+                </div>
+
+                <h3>
+                    ภารกิจที่ 3
+                </h3>
+
+                <p>
+                    ตอบคำถามสุดน่ารักของเรา
+                </p>
+
+                <div
+                    class="mission-status"
+                    id="status3"
+                >
+                    ○ ยังไม่สำเร็จ
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            style="
+                text-align:center;
+                margin-top:30px;
+            "
+        >
+
+            <button
+                class="btn"
+                onclick="goPage(3)"
+            >
+                เริ่มภารกิจที่ 1 →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- PAGE 3 : MISSION 1 -->
+<!-- ================================================= -->
+
+<section class="page" id="page3">
+
+    <div class="topbar">
+
+        <button
+            class="btn secondary"
+            onclick="goPage(2)"
+        >
+            ← Back
+        </button>
+
+        <div class="page-number">
+            03 / 07
+        </div>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <div class="kr">
+            첫 번째 미션 ♡
+        </div>
+
+        <h2>
+            กดหัวใจให้ครบ 10 ครั้ง
+        </h2>
+
+        <p>
+            너무 귀여워 ♡ กดเลยยย
+        </p>
+
+    </div>
+
+
+    <div class="heart-game">
+
+        <button
+            class="big-heart"
+            id="bigHeart"
+        >
+
+            <i data-lucide="heart"></i>
+
+        </button>
+
+
+        <div class="counter">
+
+            <span id="heartCount">
+                0
+            </span>
+
+            / 10
+
+        </div>
+
+
+        <div style="margin-top:30px;">
+
+            <button
+                class="btn"
+                id="heartNext"
+                style="display:none;"
+                onclick="goPage(4)"
+            >
+                ภารกิจต่อไป →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- PAGE 4 : MISSION 2 -->
+<!-- ================================================= -->
+
+<section class="page" id="page4">
+
+    <div class="topbar">
+
+        <button
+            class="btn secondary"
+            onclick="goPage(3)"
+        >
+            ← Back
+        </button>
+
+        <div class="page-number">
+            04 / 07
+        </div>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <div class="kr">
+            두 번째 미션 ♡
+        </div>
+
+        <h2>
+            จับหัวใจให้ครบ 5 ดวง
+        </h2>
+
+        <p>
+            하트를 잡아주세요 ♡
+        </p>
+
+    </div>
+
+
+    <div
+        class="catch-area"
+        id="catchArea"
+    ></div>
+
+
+    <div style="text-align:center;">
+
+        <div style="margin-bottom:18px;">
+
+            จับได้
+
+            <b id="catchCount">
+                0
+            </b>
+
+            / 5
+
+        </div>
+
+
+        <button
+            class="btn"
+            id="catchNext"
+            style="display:none;"
+            onclick="goPage(5)"
+        >
+            ภารกิจสุดท้าย →
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- PAGE 5 : QUESTION -->
+<!-- ================================================= -->
+
+<section class="page" id="page5">
+
+    <div class="topbar">
+
+        <button
+            class="btn secondary"
+            onclick="goPage(4)"
+        >
+            ← Back
+        </button>
+
+        <div class="page-number">
+            05 / 07
+        </div>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <div class="kr">
+            마지막 미션 ♡
+        </div>
+
+        <h2>
+            คำถามสุดท้าย
+        </h2>
+
+        <p>
+            เลือกคำตอบที่คิดว่าใช่ที่สุด ♡
+        </p>
+
+    </div>
+
+
+    <div class="question-card">
+
+        <div class="question">
+
+            ถ้าเราได้ไปเที่ยวด้วยกัน
+            <br>
+            อยากไปที่ไหนที่สุด?
+
+        </div>
+
+
+        <div class="answers">
+
+
+            <button
+                class="answer"
+                onclick="answerQuestion(this)"
+            >
+                อยู่บ้านกับเธอ
+            </button>
+
+
+            <button
+                class="answer"
+                onclick="answerQuestion(this)"
+            >
+                เกาหลี
+            </button>
+
+
+            <button
+                class="answer"
+                onclick="answerQuestion(this)"
+            >
+                ญี่ปุ่น
+
+            </button>
+
+
+            <button
+                class="answer"
+                onclick="answerQuestion(this)"
+            >
+                รอบโลกกก
+            </button>
+
+
+        </div>
+
+
+        <div
+            id="answerResult"
+            style="
+                margin-top:20px;
+                color:#b85c78;
+                font-size:15px;
+            "
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- PAGE 6 : MUSIC KEY -->
+<!-- ================================================= -->
+
+<section class="page" id="page6">
+
+    <div class="topbar">
+
+        <button
+            class="btn secondary"
+            onclick="goPage(5)"
+        >
+            ← Back
+        </button>
+
+        <div class="page-number">
+            06 / 07
+        </div>
+
+    </div>
+
+
+    <div class="section-title">
+
+        <div class="kr">
+            음악의 열쇠 ♡
+        </div>
+
+        <h2>
+            กุญแจเพลงของเรา
+        </h2>
+
+        <p>
+            ภารกิจสำเร็จแล้ว!
+            นี่คือกุญแจลับของเพลง ♡
+        </p>
+
+    </div>
+
+
+    <div class="key-card">
+
+
+        <i
+            data-lucide="key-round"
+            class="key-icon"
+            width="55"
+        ></i>
+
+
+        <h2>
+            Music Key 🔑
+        </h2>
+
+
+        <p>
+
+            คัดลอกกุญแจนี้ไว้ก่อนนะ
+
+            <br>
+
+            แล้วกด “ไปหน้าถัดไป”
+
+        </p>
+
+
+        <div
+            class="key-box"
+            id="musicKeyDisplay"
+        ></div>
+
+
+        <div class="copy-row">
+
+            <button
+                class="btn"
+                onclick="copyMusicKey()"
+            >
+
+                <i
+                    data-lucide="copy"
+                    style="vertical-align:middle;"
+                ></i>
+
+                คัดลอกกุญแจ
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="copyMessage"
+            style="
+                margin-top:15px;
+                color:#bd7187;
+                font-size:14px;
+            "
+        ></div>
+
+
+        <div style="margin-top:30px;">
+
+            <button
+                class="btn"
+                onclick="goPage(7)"
+            >
+                ไปหน้าถัดไป →
+            </button>
+
+        </div>
+
+
+        <div
+            class="hand"
+            style="margin-top:30px;"
+        >
+            고마워 ♡
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- PAGE 7 : MUSIC -->
+<!-- ================================================= -->
+
+<section class="page" id="page7">
+
+    <div class="topbar">
+
+        <button
+            class="btn secondary"
+            onclick="goPage(6)"
+        >
+            ← Back
+        </button>
+
+        <div class="page-number">
+            07 / 07
+        </div>
+
+    </div>
+
+
+    <!-- MUSIC INPUT -->
+
+    <div id="musicInputSection">
+
+        <div class="section-title">
+
+            <div class="kr">
+                우리의 음악 ♡
+            </div>
+
+            <h2>
+                ใส่กุญแจเพลง
+            </h2>
+
+            <p>
+
+                เอากุญแจที่ได้จากหน้าที่แล้ว
+                มาวางตรงนี้
+
+                <br>
+
+                음악을 열어주세요 ♡
+
+            </p>
+
+        </div>
+
+
+        <div class="music-box">
+
+
+            <i
+                data-lucide="music-2"
+                width="55"
+                style="color:#b85c78;"
+            ></i>
+
+
+            <input
+                id="musicKeyInput"
+                type="text"
+                placeholder="วาง Music Key ตรงนี้..."
+            >
+
+
+            <div
+                class="error"
+                id="musicError"
+            ></div>
+
+
+            <button
+                class="btn"
+                onclick="unlockMusic()"
+            >
+                🔓 เปิดเพลง
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CD ANIMATION -->
+
+    <div
+        class="cd-scene"
+        id="cdScene"
+    >
+
+        <div class="cd-machine">
+
+            <div class="cd-slot"></div>
+
+            <div
+                class="cd"
+                id="cd"
+            ></div>
+
+        </div>
+
+
+        <div class="unlock-text">
+            음악이 열렸어 ♡
+        </div>
+
+
+        <p style="margin-top:10px;">
+            กำลังใส่แผ่นเพลงของเรา...
+        </p>
+
+    </div>
+
+
+
+    <!-- MUSIC PLAYER -->
+
+    <div
+        id="musicPlayerSection"
+        style="
+            display:none;
+            width:100%;
+        "
+    >
+
+
+        <div class="section-title">
+
+            <div class="kr">
+                너를 위한 노래 ♡
+            </div>
+
+            <h2>
+                เพลงของเรา
+            </h2>
+
+            <p>
+                우리만의 작은 음악
+            </p>
+
+        </div>
+
+
+
+        <div class="player">
+
+
+            <div class="album">
+
+                <img
+                    src="https://cdn.discordapp.com/attachments/1501195398801260596/1554185427689410611/7b9b94fff10c993bf8d71ade8e7872f6.png?ex=6abbf779&is=6abaa5f9&hm=bcc9b866008d9f0219c4f0c4ac7b1da8c07be50e88316e008752135381093fcb&"
+                >
+
+            </div>
+
+
+
+            <div>
+
+                <div class="now-playing">
+                    NOW PLAYING ♡
+                </div>
+
+
+                <div class="song-title">
+                    우리들의 노래
+                </div>
+
+
+                <div class="progress">
+
+                    <div
+                        class="progress-fill"
+                        id="progressFill"
+                    ></div>
+
+                </div>
+
+
+                <div class="controls">
+
+
+                    <button
+                        class="control"
+                        onclick="
+                            audio.currentTime=0
+                        "
+                    >
+
+                        <i data-lucide="skip-back"></i>
+
+                    </button>
+
+
+                    <button
+                        class="control main"
+                        onclick="toggleMusic()"
+                        id="playButton"
+                    >
+
+                        <i data-lucide="play"></i>
+
+                    </button>
+
+
+                    <button
+                        class="control"
+                        onclick="
+                            audio.currentTime =
+                            audio.duration || 0
+                        "
+                    >
+
+                        <i data-lucide="skip-forward"></i>
+
+                    </button>
+
+
+                </div>
+
+
+                <audio id="audio"></audio>
+
+
+                <div
+                    style="
+                        margin-top:25px;
+                        text-align:center;
+                        color:#9b7b80;
+                        font-family:'Nanum Pen Script',cursive;
+                        font-size:25px;
+                    "
+                >
+                    사랑해요 ♡
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- MEMORIES -->
+        <!-- ================================================= -->
+
+
+        <div
+            class="section-title"
+            style="margin-top:70px;"
+        >
+
+            <div class="kr">
+                우리의 추억 ♡
+            </div>
+
+            <h2>
+                ความทรงจำของเรา
+            </h2>
+
+            <p>
+                รูปจะค่อย ๆ ปรากฏขึ้นมาเรื่อย ๆ ♡
+            </p>
+
+        </div>
+
+
+
+        <div class="memory-layout">
+
+
+            <!-- ============================================= -->
+            <!-- PHOTOS -->
+            <!-- ============================================= -->
+
+
+            <div class="gallery">
+
+
+                <!-- PHOTO 1 -->
+
+                <div
+                    class="photo-card"
+                    id="photo1"
+                >
+
+                    <img
+                        src="https://cdn.discordapp.com/attachments/1501195398801260596/1554179168520904785/0d9330ab62cf5bc784150ccd86cc3e9e.jpg?ex=6abbf1a5&is=6abaa025&hm=cd00b59e779108407cac6fdee13755d41ed46bb59c344a3b3fcce5d024efc070&"
+                    >
+
+                    <div class="photo-caption">
+                        사랑해요 ♡
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 2 -->
+
+                <div
+                    class="photo-card"
+                    id="photo2"
+                >
+
+                    <img
+                        src="https://cdn.discordapp.com/attachments/1501195398801260596/1554179168852377600/att.J2FsMdFj_gH7qPKyKwojTBX7g4BEk57WZyIZR7eALJg.jpg?ex=6abbf1a5&is=6abaa025&hm=da37bace559c6780bec370e1861561fb00683cc6d1f63b81893c267a914b9caa&"
+                    >
+
+                    <div class="photo-caption">
+                        너와 함께라서 행복해
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 3 -->
+
+                <div
+                    class="photo-card"
+                    id="photo3"
+                >
+
+                    <img
+                        src="https://cdn.discordapp.com/attachments/1501195398801260596/1554179169548636281/2cfcd67af2de53747764ba17599b270c.jpg?ex=6abbf1a5&is=6abaa025&hm=8f545ae1fa42ae2c2c23c5e51d146d5a41ff6eb8707aa3cdfab617644fc9b6f0&"
+                    >
+
+                    <div class="photo-caption">
+                        우리의 추억 ♡
+                    </div>
+
+                </div>
+
+
+                <!-- PHOTO 4 -->
+
+                <div
+                    class="photo-card"
+                    id="photo4"
+                >
+
+                    <img
+                        src="https://cdn.discordapp.com/attachments/1501195398801260596/1554190406399434932/IMG_8668.png?ex=6abbfc1c&is=6abaaa9c&hm=1f8cb726c6a8a808b333be8f643814d5439d85fabdb4c4ae6bf67570e56be7b1&"
+                    >
+
+                    <div class="photo-caption">
+                        앞으로도 함께하자 ♡
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ============================================= -->
+            <!-- MESSAGE CARDS -->
+            <!-- ============================================= -->
+
+
+            <div class="message-column">
+
+
+                <!-- MESSAGE 1 -->
+
+                <div class="message-card">
+
+                    <div class="message-inner">
+
+
+                        <!-- KOREAN -->
+
+                        <div class="message-front">
+
+                            <div class="message-label">
+                                MESSAGE 01
+                            </div>
+
+
+                            <div class="message-korean">
+                                사랑해요 ♡
+                            </div>
+
+
+                            <button
+                                class="translate-btn"
+                                onclick="flipMessage(this)"
+                            >
+                                แปล ♡
+                            </button>
+
+                        </div>
+
+
+                        <!-- THAI -->
+
+                        <div class="message-back">
+
+                            <div class="message-label">
+                                THAI ♡
+                            </div>
+
+
+                            <div class="message-thai">
+                                รักเธอนะ ♡
+                            </div>
+
+
+                            <button
+                                class="translate-btn"
+                                onclick="flipMessage(this)"
+                            >
+                                กลับเป็นเกาหลี
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MESSAGE 2 -->
+
+                <div class="message-card">
+
+                    <div class="message-inner">
+
+
+                        <div class="message-front">
+
+                            <div class="message-label">
+                                MESSAGE 02
+                            </div>
+
+
+                            <div class="message-korean">
+                                너와 함께라서 행복해
+                            </div>
+
+
+                            <button
+                                class="translate-btn"
+                                onclick="flipMessage(this)"
+                            >
+                                แปล ♡
+                            </button>
+
+                        </div>
+
+
+                        <div class="message-back">
+
+                            <div class="message-label">
+                                THAI ♡
+                            </div>
+
+
+                            <div class="message-thai">
+                                เพราะมีเธออยู่ด้วย
+                                เค้าเลยมีความสุขขข ♡
+                            </div>
+
+
+                            <button
+                                class="translate-btn"
+                                onclick="flipMessage(this)"
+                            >
+                                กลับเป็นเกาหลี
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MESSAGE 3 -->
+
+                <div class="message-card">
+
+                    <div class="message-inner">
+
+
+                        <div class="message-front">
+
+                            <div class="message-label">
+                                MESSAGE 03
+                            </div>
+
+
+                            <div class="message-korean">
+                                우리의 추억은 영원해 ♡
+                            </div>
+
+
+                            <button
+                                class="translate-btn"
+                                onclick="flipMessage(this)"
+                            >
+                                แปล ♡
+                            </button>
+
+                        </div>
+
+
+                        <div class="message-back">
+
+                            <div class="message-label">
+                                THAI ♡
+                            </div>
+
+
+                            <div class="message-thai">
+                                ความทรงจำของเรา
+                                จะอยู่ตลอดไปปเยยย ♡
+                            </div>
+
+
+                            <button
+                                class="translate-btn"
+                                onclick="flipMessage(this)"
+                            >
+                                กลับเป็นเกาหลี
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- MESSAGE 4 -->
+
+                <div class="message-card">
+
+                    <div class="message-inner">
+
+
+                        <div class="message-front">
+
+                            <div class="message-label">
+                                MESSAGE 04
+                            </div>
+
+
+                            <div class="message-korean">
+                                앞으로도 함께하자 ♡
+                            </div>
+
+
+                            <button
+                                class="translate-btn"
+                                onclick="flipMessage(this)"
+                            >
+                                แปล ♡
+                            </button>
+
+                        </div>
+
+
+                        <div class="message-back">
+
+                            <div class="message-label">
+                                THAI ♡
+                            </div>
+
+
+                            <div class="message-thai">
+                                ต่อจากนี้ก็อยู่ด้วยกัน
+                                ไปนาน ๆ น้าา ♡
+                            </div>
+
+
+                            <button
+                                class="translate-btn"
+                                onclick="flipMessage(this)"
+                            >
+                                กลับเป็นเกาหลี
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- ENDING -->
+        <!-- ================================================= -->
+
+
+        <div
+            style="
+                margin-top:70px;
+                display:flex;
+                justify-content:center;
+            "
+        >
+
+            <div class="ending">
+
+                <div class="ending-content">
+
+
+                    <div class="kr">
+                        우리, 꼭 함께하자 ♡
+                    </div>
+
+
+                    <h2>
+
+                        อยู่ด้วยกัน
+                        <br>
+                        ไปนาน ๆ นะ ครบรอบ 4 เดือนแล้วน้าา
+
+                    </h2>
+
+
+                    <p>
+
+                        너와 함께하는 모든 순간이 특별해
+
+                        <br>
+
+                        ทุกช่วงเวลาที่มีเธออยู่ด้วยกัน
+                        มันพิเศษเสมอเยยเค้าอยากให้เธอกับเค้าอยู่ด้วยกันจนโลกแตกไปเลยเค้ารักเธอมากมากก
+                        รักจนไม่รู้จะพูดคำว่ารักได้มากมายขนาดไหนแต่ในทุกช่วงเวลามีที่รักอยู่เสมอนะครับ
+                        ขอให้เราอยู่ด้วยกันไปตลอดกาลลเลยยยจนข้ามปีนี้ไปเลยนะมีอะไรที่ไม่ชอบ
+                        หรือไม่อยากให้เค้าทำบอกเค้าได้เลยนะ เค้าจะปรับเพื่อเธอได้ทุกอย่างเลย เค้าอยากให้เธอสดใสอยู่เสมอเลย
+                        อยู่เล่นเกมทำอะไรกับเค้าไปนานๆเลยนะอยากให้เธอเค้ามาอยู่ในหัวใจตลอดเวลาเลยย รักเธอทั้งหัวใจ ♡
+
+                    </p>
+
+
+                    <div style="margin-top:30px;">
+
+                        <span style="font-size:35px;">
+                            ♡
+                        </span>
+
+                        <span style="font-size:25px;">
+                            ♡
+                        </span>
+
+                        <span style="font-size:45px;">
+                            ♡
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+
+/* ================================================= */
+/* MUSIC KEY */
+/* ================================================= */
+
+const SECRET_MUSIC_KEY =
+"https://www.image2url.com/r2/default/audio/1790614919563-a8c624ae-e8bb-41dc-a283-81a16e7f33d9.mp3";
+
+
+
+/* ================================================= */
+/* PAGE SYSTEM */
+/* ================================================= */
+
+function goPage(number){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
+
+
+    const target =
+        document.getElementById(
+            "page" + number
+        );
+
+
+    if(target){
+
+        target.classList.add("active");
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+
+    if(number === 6){
+
+        document
+            .getElementById(
+                "musicKeyDisplay"
+            )
+            .textContent =
+            SECRET_MUSIC_KEY;
+
+    }
+
+}
+
+
+
+/* ================================================= */
+/* MISSION 1 */
+/* ================================================= */
+
+let heartCount = 0;
+
+
+document
+    .getElementById("bigHeart")
+    .addEventListener("click",()=>{
+
+        heartCount++;
+
+
+        document
+            .getElementById("heartCount")
+            .textContent =
+            heartCount;
+
+
+        if(heartCount >= 10){
+
+            document
+                .getElementById("status1")
+                .innerHTML =
+                "✓ สำเร็จแล้ว ♡";
+
+
+            document
+                .getElementById("heartNext")
+                .style.display =
+                "inline-block";
+
+
+            document
+                .getElementById("bigHeart")
+                .style.transform =
+                "scale(1.1)";
+
+
+            setTimeout(()=>{
+
+                document
+                    .getElementById("bigHeart")
+                    .style.transform =
+                    "";
+
+            },200);
+
+        }
+
+    });
+
+
+
+/* ================================================= */
+/* MISSION 2 */
+/* ================================================= */
+
+let catchCount = 0;
+
+
+function createCatchHeart(){
+
+    const area =
+        document.getElementById(
+            "catchArea"
+        );
+
+
+    const heart =
+        document.createElement(
+            "button"
+        );
+
+
+    heart.className =
+        "catch-heart";
+
+
+    heart.innerHTML =
+        '<i data-lucide="heart"></i>';
+
+
+    heart.style.left =
+        Math.random()*88 + "%";
+
+
+    heart.style.top =
+        Math.random()*80 + "%";
+
+
+    heart.style.fontSize =
+        (25 + Math.random()*25)
+        + "px";
+
+
+    heart.onclick = ()=>{
+
+        catchCount++;
+
+
+        document
+            .getElementById(
+                "catchCount"
+            )
+            .textContent =
+            catchCount;
+
+
+        heart.remove();
+
+
+        if(catchCount < 5){
+
+            createCatchHeart();
+
+        }
+
+
+        if(catchCount >= 5){
+
+            document
+                .getElementById(
+                    "status2"
+                )
+                .innerHTML =
+                "✓ สำเร็จแล้ว ♡";
+
+
+            document
+                .getElementById(
+                    "catchNext"
+                )
+                .style.display =
+                "inline-block";
+
+        }
+
+
+        lucide.createIcons();
+
+    };
+
+
+    area.appendChild(heart);
+
+    lucide.createIcons();
+
+}
+
+
+for(let i=0;i<5;i++){
+
+    createCatchHeart();
+
+}
+
+
+
+/* ================================================= */
+/* MISSION 3 */
+/* ================================================= */
+
+function answerQuestion(button){
+
+    const result =
+        document.getElementById(
+            "answerResult"
+        );
+
+
+    result.innerHTML =
+        "정답 ♡ เก่งมากกก! ภารกิจสำเร็จแล้ว";
+
+
+    document
+        .getElementById(
+            "status3"
+        )
+        .innerHTML =
+        "✓ สำเร็จแล้ว ♡";
+
+
+    setTimeout(()=>{
+
+        goPage(6);
+
+    },1000);
+
+}
+
+
+
+/* ================================================= */
+/* COPY MUSIC KEY */
+/* ================================================= */
+
+function copyMusicKey(){
+
+    navigator
+        .clipboard
+        .writeText(
+            SECRET_MUSIC_KEY
+        )
+
+        .then(()=>{
+
+            document
+                .getElementById(
+                    "copyMessage"
+                )
+                .textContent =
+                "คัดลอกแล้ว! ♡ เอาไปใส่หน้าถัดไปได้เลย";
+
+        })
+
+        .catch(()=>{
+
+            const temp =
+                document.createElement(
+                    "textarea"
+                );
+
+
+            temp.value =
+                SECRET_MUSIC_KEY;
+
+
+            document.body.appendChild(
+                temp
+            );
+
+
+            temp.select();
+
+
+            document.execCommand(
+                "copy"
+            );
+
+
+            temp.remove();
+
+
+            document
+                .getElementById(
+                    "copyMessage"
+                )
+                .textContent =
+                "คัดลอกกุญแจแล้ว ♡";
+
+        });
+
+}
+
+
+
+/* ================================================= */
+/* MUSIC */
+/* ================================================= */
+
+const audio =
+    document.getElementById(
+        "audio"
+    );
+
+
+const playButton =
+    document.getElementById(
+        "playButton"
+    );
+
+
+const progressFill =
+    document.getElementById(
+        "progressFill"
+    );
+
+
+
+function unlockMusic(){
+
+    const input =
+        document
+            .getElementById(
+                "musicKeyInput"
+            )
+            .value
+            .trim();
+
+
+    const error =
+        document.getElementById(
+            "musicError"
+        );
+
+
+    if(input !== SECRET_MUSIC_KEY){
+
+        error.textContent =
+            "กุญแจไม่ถูกต้องนะ ♡ ลองคัดลอกจากหน้าก่อนหน้าอีกครั้ง";
+
+        return;
+
+    }
+
+
+    error.textContent = "";
+
+
+    document
+        .getElementById(
+            "musicInputSection"
+        )
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById(
+            "cdScene"
+        )
+        .style.display =
+        "block";
+
+
+    setTimeout(()=>{
+
+        document
+            .getElementById(
+                "cd"
+            )
+            .classList.add(
+                "insert"
+            );
+
+    },300);
+
+
+
+    setTimeout(()=>{
+
+        audio.src =
+            SECRET_MUSIC_KEY;
+
+
+        document
+            .getElementById(
+                "cdScene"
+            )
+            .style.display =
+            "none";
+
+
+        document
+            .getElementById(
+                "musicPlayerSection"
+            )
+            .style.display =
+            "block";
+
+
+        document
+            .getElementById(
+                "musicPlayerSection"
+            )
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+
+        showPhotos();
+
+
+    },1900);
+
+}
+
+
+
+/* ================================================= */
+/* PLAYER */
+/* ================================================= */
+
+function toggleMusic(){
+
+    if(audio.paused){
+
+        audio
+            .play()
+            .then(()=>{
+
+                playButton.innerHTML =
+                    '<i data-lucide="pause"></i>';
+
+                lucide.createIcons();
+
+            })
+
+            .catch(()=>{
+
+                alert(
+                    "ลองกดปุ่ม Play อีกครั้งนะครับ ♡"
+                );
+
+            });
+
+    }
+
+    else{
+
+        audio.pause();
+
+
+        playButton.innerHTML =
+            '<i data-lucide="play"></i>';
+
+
+        lucide.createIcons();
+
+    }
+
+}
+
+
+
+audio.addEventListener(
+    "timeupdate",
+    ()=>{
+
+        if(audio.duration){
+
+            const percent =
+                (
+                    audio.currentTime /
+                    audio.duration
+                ) * 100;
+
+
+            progressFill.style.width =
+                percent + "%";
+
+        }
+
+    }
+);
+
+
+
+audio.addEventListener(
+    "ended",
+    ()=>{
+
+        playButton.innerHTML =
+            '<i data-lucide="play"></i>';
+
+        lucide.createIcons();
+
+    }
+);
+
+
+
+/* ================================================= */
+/* SHOW PHOTOS ONE BY ONE */
+/* ================================================= */
+
+function showPhotos(){
+
+    const photos = [
+
+        document.getElementById(
+            "photo1"
+        ),
+
+        document.getElementById(
+            "photo2"
+        ),
+
+        document.getElementById(
+            "photo3"
+        ),
+
+        document.getElementById(
+            "photo4"
+        )
+
+    ];
+
+
+    photos.forEach(
+        (photo,index)=>{
+
+            setTimeout(()=>{
+
+                photo.classList.add(
+                    "show"
+                );
+
+            },index * 900);
+
+        }
+    );
+
+}
+
+
+
+/* ================================================= */
+/* FLIP MESSAGE CARD */
+/* ================================================= */
+
+function flipMessage(button){
+
+    const card =
+        button.closest(
+            ".message-card"
+        );
+
+
+    card.classList.toggle(
+        "flipped"
+    );
+
+}
+
+
+
+/* ================================================= */
+/* LUCIDE */
+/* ================================================= */
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>
